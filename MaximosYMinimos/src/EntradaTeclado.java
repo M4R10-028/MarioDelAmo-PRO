@@ -6,7 +6,7 @@ public class EntradaTeclado {
     public static void main(String[] args) {
         String nombre; // al no estar definido su valor, automaticamnete su valor pasa a ser nulo o null.
         System.out.println("Por favor introduce tu nombre");
-        // el usuario introduzca el nombre por ell teclado
+        // el usuario introduzca el nombre por el teclado
         nombre = lectorTeclado.next();
         // Mi nombre es XXX(Borja) tengo XXX(40) mido XXX(1.73) y tengo experiencia trabajando en XXX(true)
 
