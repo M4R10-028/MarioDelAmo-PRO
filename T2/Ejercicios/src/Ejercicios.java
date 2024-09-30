@@ -15,7 +15,12 @@ public class Ejercicios {
         //ejercicio7();
         //ejercicio8();
         //ejercicio9();
-        ejercicio10();
+        //ejercicio10();
+        //ejercicio11();
+        //ejercicio12();
+        //ejercicio13();
+        //ejercicio14();
+        //ejercicio15();
 
     }
     static Scanner lectorTeclado = new Scanner(System.in);
@@ -225,10 +230,113 @@ public class Ejercicios {
                 "Unidades de mil: %d\n" +
                 "Centenas: %d\n" +
                 "Decenas: %d\n" +
-                "Unidades; %d\n" +
+                "Unidades: %d\n" +
                 "Numero inicial: %d", decenasDeMil, unidadesDeMil, centenas, decenas,unidades, numeroInicial);
+    }
+
+    public static void ejercicio11() {
+        int numeroEntero;
+        System.out.println("Dime un numero entero entre el 0 y el 100");
+        numeroEntero = lectorTeclado.nextInt();
+
+        boolean resultadoNumero = numeroEntero % 2 == 0;
+
+        boolean numeroMayor = numeroEntero > 50;
+
+        System.out.printf("Escribe un numero entre 0 y 100: %d\n" +
+                "Tu numero es par: %b\n" +
+                "Tu numero es mayor que 50: %b", numeroEntero, resultadoNumero, numeroMayor);
+    }
+
+    public static void ejercicio12() {
+        String palabra1;
+        System.out.println("Escribe la primera palabra que quieres comparar");
+        palabra1 = lectorTeclado.nextLine();
+
+        String palabra2;
+        System.out.println("Escribe la segunda palabra que quieres comparar");
+        palabra2 = lectorTeclado.nextLine();
+
+        boolean resultadoPalabras = palabra1.equals(palabra2);
+
+        boolean comparacionPalabra = palabra1.compareTo(palabra2)>=1;
+
+        System.out.printf("Palabra 1: %s\n" +
+                "Palabra 2: %s\n" +
+                "Son iguales: %b\n" +
+                "La primera es menor que la segunda: %b %n", palabra1, palabra2, resultadoPalabras, comparacionPalabra);
+    }
+
+    public static void ejercicio13(){
+
+        int numero1;
+        System.out.println("Dime el primer numero del 0 al 9");
+        numero1 = lectorTeclado.nextInt();
+
+        int numero2;
+        System.out.println("Dime el segundo numero del 0 al 9");
+        numero2 = lectorTeclado.nextInt();
+
+        boolean comparacionnum = numero1 % 2 == 0 && numero2 % 2 != 0;
+
+        boolean comparaciondoble = numero1 > (numero2 * 2) && numero1 < 8;
+
+        boolean comparaciontriple = numero1 == numero2 || numero1 - numero2 <= 2 && numero1 -  numero2 >= -2 || numero2 - numero1 <= 2 && numero2 - numero1 >= -2;
+
+        System.out.printf("Escribe un número del 0 al 9: %d\n" +
+                "Escribe un número del 0 al 9: %d\n" +
+                "El primero es par y el segundo es impar: %b\n" +
+                "El primero es superior al doble del segundo e inferior a 8: %b\n" +
+                "Son iguales o la diferencia entre el primero y el segundo es menor que 2: %b", numero1, numero2, comparacionnum, comparaciondoble, comparaciontriple);
+    }
+
+    public static void ejercicio14() {
+
+        int edad;
+        System.out.println("¿Cuantos años tienes?");
+        edad = lectorTeclado.nextInt();
+
+        int estudios;
+        System.out.println("Dime tu nivel de estudios entre 0 al 10");
+        estudios = lectorTeclado.nextInt();
+
+        int ingresos;
+        System.out.println("¿Cuales son tus ingresos al mes?");
+        ingresos = lectorTeclado.nextInt();
+
+        boolean comparacion = edad > 40 && (estudios >= 5 && estudios <= 8) && ingresos < 15000;
+
+        System.out.printf("Edad: %d\n" +
+                "\n" +
+                "Nivel de estudios: %d\n" +
+                "\n" +
+                "Ingresos: %d\n" +
+                "\n" +
+                "Mas de 40 años y estudios entre 5 y 8 y gana menos de 15000: %b", edad, estudios, ingresos, comparacion);
 
     }
 
+    public static void ejercicio15() {
+
+        int num;
+        System.out.println("Dime un numero entero");
+        num = lectorTeclado.nextInt();
+
+        int entero = num;
+
+        int num2 = num += 5;
+
+        int num3 = num2 -= 3;
+
+        int num4 = num3 *= 10;
+
+        num4 /= 2;
+
+        System.out.printf("ENTERO: %d\n" +
+                "Incrementar 5 unidades: %d\n" +
+                "Decrementar 3 unidades: %d\n" +
+                "Multiplicar por 10: %d\n" +
+                "Dividir por 2: %d", entero, num, num2, num3, num4);
+    }
 
 }
