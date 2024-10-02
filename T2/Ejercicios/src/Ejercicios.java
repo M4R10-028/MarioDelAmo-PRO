@@ -22,6 +22,9 @@ public class Ejercicios {
         //ejercicio14();
         //ejercicio15();
 
+        //ejercicioDiez();
+        //ejercicioQuince();
+
     }
     static Scanner lectorTeclado = new Scanner(System.in);
     public static void ejercicio1() {
@@ -339,4 +342,41 @@ public class Ejercicios {
                 "Dividir por 2: %d", entero, num, num2, num3, num4);
     }
 
+    public static void ejercicioDiez(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce tus unidades");
+        int unidades = scanner.nextInt();
+        System.out.println("Introduce tus decenas");
+        int decenas = scanner.nextInt();
+        System.out.println("Introduce tus centenas");
+        int centenas = scanner.nextInt();
+        System.out.println("Introduce tus unidades de millar");
+        int unidadesMillar = scanner.nextInt();
+        System.out.println("Introduce tus decenas de millar");
+        int decenasMillar = scanner.nextInt();
+
+        System.out.printf("Unidades: %d\n" +
+                "Decenas: %d\n" +
+                "Centenas: %d\n" +
+                "Unidades de millar: %d\n" +
+                "Decenas de millar: %d\n" +
+                "Numero Entero: %d", unidades, decenas, centenas, unidadesMillar, decenasMillar, unidades + decenas * 10 + centenas * 100 + unidadesMillar * 1000 + decenasMillar * 10000);
+    }
+
+    public static void ejercicioQuince(){
+
+        System.out.println("Introduce un numero");
+        int numero = lectorTeclado.nextInt();
+
+        numero+=5;
+        System.out.println("El resultado es: " + numero);
+        numero -= 3;
+        System.out.println("El resultado es: "+ numero);
+        numero *= 10;
+        System.out.println("El resultado es: "+ numero);
+        numero /= 2;
+        System.out.println("El resultado es: "+ numero);
+
+    }
 }
