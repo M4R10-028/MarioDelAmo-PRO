@@ -12,10 +12,11 @@ public class EjerciciosArray {
         //ejercicio5();
         //ejercicio6();
         //ejercicio7();
-        //ejercicio8();
-        //ejercicio9();
-        //ejercicio10();
-        //ejercicio11();
+        //ejercicio01();
+        //ejercicio02();
+        //ejercicio03();
+        //ejercicio04();
+        //ejercicio05();
     }
 
     public static void ejercicio1() {
@@ -192,7 +193,7 @@ public class EjerciciosArray {
         }
 
     }
-    public static void ejercicio8(){
+    public static void ejercicio01(){
         int[] numeros = new int[5];
         int sumatorio = 0;
         int sumatorioM = 0;
@@ -217,7 +218,7 @@ public class EjerciciosArray {
         System.out.println("La suma de los numeros sin multiplicar es " + media);
         System.out.println("La suma de los numeros multiplicados es " + mediaM);
     }
-    public static void ejercicio9(){
+    public static void ejercicio02(){
         System.out.println("Cuanto quieres que ocupe el array");
         int longitud = scanner.nextInt();
 
@@ -239,7 +240,7 @@ public class EjerciciosArray {
         System.out.println("El numero mas grande es " + numeroGrande);
         System.out.println("El numero mas pequeño es " + numeroPeque);
     }
-    public static void ejercicio10() {
+    public static void ejercicio03() {
         System.out.println("Ingresa la longitud del primer array");
         int lon = scanner.nextInt();
 
@@ -271,7 +272,7 @@ public class EjerciciosArray {
             System.out.print(tres + " ");
         }
     }
-    public static void ejercicio11(){
+    public static void ejercicio04(){
         System.out.println("Ingresa la longitud del array");
         int lon = scanner.nextInt();
 
@@ -312,6 +313,96 @@ public class EjerciciosArray {
             System.out.print(item + " ");
         }
     }
+    public static void ejercicio05() {
+        int[] numeros = new int[10];
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = (int)(Math.random()*10);
+        }
+        System.out.println("Sin modificaciones");
+        for (int item: numeros) {
+            System.out.print(item + ", ");
+        }
+        System.out.println("\n");
 
+        for (int i = 0; i < numeros.length; i++) {
+
+            if (numeros[i] % 2 == 0) {
+                numeros[i] += 1;
+            } else if (numeros[i] % 2 == 1) {
+                numeros[i] -= 1;
+            }
+        }
+        System.out.println("1era modificación");
+        for (int item1:numeros) {
+            System.out.print(item1 + ", ");
+        }
+        System.out.println("\n");
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] > 0 && numeros[i] < 5){
+                numeros[i] *= 2;
+            }
+        }
+        System.out.println("2da modificación");
+        for (int item2:numeros) {
+            System.out.print(item2 + ", ");
+        }
+        System.out.println("\n");
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] += (int) (Math.random()*10) - 5;
+        }
+        System.out.println("3ra modificación");
+        for (int item3:numeros) {
+            System.out.print(item3 + ", ");
+        }
+        System.out.println("\n");
+        int ultimo;
+        ultimo = numeros[numeros.length-1];
+        for (int i = numeros.length - 1; i > 0; i--) {
+            numeros[i] = numeros[i-1];
+        }
+        numeros[0] = ultimo;
+        System.out.println("4a modificación");
+        for (int item4:numeros) {
+            System.out.print(item4 + ", ");
+        }
+        System.out.println("\n");
+        for (int i = 0; i < numeros.length; i+=2) {
+            int posicion2 = numeros[i+1];
+            numeros[i+1] = numeros[i];
+            numeros[i] = posicion2;
+        }
+        System.out.println("5a modificación");
+        for (int item5:numeros) {
+            System.out.print(item5 + ", ");
+        }
+        System.out.println("\n");
+        int j = numeros.length - 1;
+        for (int i = 0; i < numeros.length/2; i++) {
+            int primera = numeros[i];
+            numeros[i] = numeros[j];
+            numeros[j] = primera;
+            j--;
+        }
+
+        System.out.println("6a modificación");
+        for (int item6:numeros) {
+            System.out.print(item6 + ", ");
+        }
+        System.out.println("\n");
+
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] % 2 == 0){
+                System.out.println("El primer numero par es " + numeros[i]);
+                break;
+            }
+        }
+        for (int i = numeros.length-1; i > 0 ; i--) {
+            if (numeros[i] % 2 == 1){
+                System.out.println("El ultimo numero impar es " + numeros[i]);
+                break;
+            }
+        }
+
+    }
 }
 //Hacer del 1 - 7.

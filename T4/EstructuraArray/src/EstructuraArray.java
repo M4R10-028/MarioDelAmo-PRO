@@ -68,5 +68,18 @@ public class EstructuraArray {
                 System.out.println(item);
             }
         }
+
+        /*Array [] -> Contenedor
+        * int[] -> {1,4,8,9,2,20}
+        * String[] -> {"Hola", "adios, ..."}
+        * boolean[] -> {true, false, true}
+        *
+        * Todos los elementos son de tipo object
+        *
+        * Object[] = boolean int String char
+        *            {true,   9, "Hola", 'c'}
+        * El programa los ve tanto como lo que son como objects, por ejemplo el true lo ve como boolean y como object
+        *
+        * 'Continuacion en entrada operaciones'*/
     }
 }
