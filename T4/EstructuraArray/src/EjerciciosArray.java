@@ -1,4 +1,5 @@
 import java.lang.ref.SoftReference;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class EjerciciosArray {
@@ -17,6 +18,10 @@ public class EjerciciosArray {
         //ejercicio03();
         //ejercicio04();
         //ejercicio05();
+        //ejercicio06();
+        //ejercicio07();
+        ejercicio08();
+        //ejercicio09();
     }
 
     public static void ejercicio1() {
@@ -390,7 +395,7 @@ public class EjerciciosArray {
         }
         System.out.println("\n");
 
-        for (int i = 0; i < numeros.length; i++) {
+        for (int i = 0; i < numeros.length-1; i++) {
             if (numeros[i] % 2 == 0){
                 System.out.println("El primer numero par es " + numeros[i]);
                 break;
@@ -402,7 +407,181 @@ public class EjerciciosArray {
                 break;
             }
         }
-
     }
+    public static void ejercicio06(){
+        System.out.println("Dime la longitud del array");
+        int lon = scanner.nextInt();
+
+        int[] numeros = new int[lon];
+        int numero = 0;
+
+        while (numero < lon){
+            System.out.println("Dime el numero más grande que vas a guardar, tiene que ser más grande que la longitud");
+            numero = scanner.nextInt();
+        }
+        numeros[0] = numero;
+        for (int i = 0; i < numeros.length-1; i++) {
+            numeros[i + 1] = numeros[i] - 1;
+        }
+        for (int item:numeros) {
+            System.out.print(" - " + item + " - ");
+        }
+    }
+    public static void ejercicio07(){
+        char[] letras = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'};
+        int lon;
+        int largo = 0;
+        System.out.println("Cuantas palabras quieres crear");
+        lon = scanner.nextInt();
+        String[] palabras = new String[lon];
+
+        for (int i = 0; i < lon; i++) {
+            System.out.println("Dime la longitud de la palabra que quieres crear");
+            largo = scanner.nextInt();
+            palabras[i]="";
+            for (int j = 0; j < largo; j++) {
+                palabras[i] += String.valueOf(letras[(int)(Math.random() * 27)]);
+            }
+        }
+        for (String item : palabras) {
+            System.out.println(item);
+        }
+    }
+    public static void ejercicio08(){
+        String[] participantes;
+        int num = 0;
+        while (num % 2 != 0){
+            System.out.println("Cuantos particiàntes sois");
+            num = scanner.nextInt();
+
+            if (num % 2 == 0){
+                participantes = new String[num];
+            } else {
+                System.out.println("Para que funcione teneis que ser pares");
+            }
+        }
+    }
+    public static void ejercicio09() {
+
+        int[] numeros = null;
+        int opcion = 0;
+        int lon = 0;
+        int temporal;
+
+        do {
+            System.out.println("1. Crear array");
+            System.out.println("2. Rellenar array con numeros aleatorios");
+            System.out.println("3. Rellenar con numeros pedidos por consola");
+            System.out.println("4. Ordenar de mayor a menor");
+            System.out.println("5. Clonar array con mayor longitud");
+            System.out.println("6. Mover izq");
+            System.out.println("7. Mover derecha");
+            System.out.println("8. Mover por pares");
+            System.out.println("9. Invertir");
+            System.out.println("10. Imprimir");
+            System.out.println("11. Salir");
+            System.out.println("Que opcion quieres realizar?");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Dime la longitud del array que quieres crear");
+                    lon = scanner.nextInt();
+                    numeros = new int[lon];
+                    break;
+                case 2:
+                    if (numeros != null) {
+                        for (int i = 0; i < numeros.length; i++) {
+                            numeros[i] = (int) (Math.random() * 100);
+                        }
+                    } else {
+                        System.out.println("No hay un array creado");
+                    }
+                    break;
+                case 3:
+                    if (numeros != null) {
+                        for (int i = 0; i < numeros.length; i++) {
+                            System.out.println("Dime los numeros que quieres meter");
+                            numeros[i] = scanner.nextInt();
+                        }
+                    } else {
+                        System.out.println("No hay un array creado");
+                    }
+                    break;
+                case 4:
+                    Arrays.sort(numeros);
+                    break;
+                case 5:
+                    System.out.println("Cual es la nueva longitud");
+                    int nuevalongitud = scanner.nextInt();
+                    numeros = Arrays.copyOf(numeros, nuevalongitud);
+                    break;
+                case 6:
+                    if (numeros != null) {
+                        System.out.println("Vas a rotar a la izquierda");
+                        temporal = numeros[0];
+                        for (int i = 0; i < numeros.length - 1; i++) {
+                            numeros[i] = numeros[i + 1];
+                        }
+                        numeros[numeros.length - 1] = temporal;
+                    } else {
+                        System.out.println("No hay un array creado");
+                    }
+                    break;
+                case 7:
+                    if (numeros != null) {
+                        System.out.println("Vas a rotar a la derecha");
+                        temporal = numeros[numeros.length - 1];
+                        for (int i = numeros.length - 1; i > 0; i--) {
+                            numeros[i] = numeros[i - 1];
+                        }
+                        numeros[0] = temporal;
+                    } else {
+                        System.out.println("No hay un array creado");
+                    }
+                    break;
+                case 8:
+                    if (numeros != null) {
+                        for (int i = 0; i < numeros.length; i += 2) {
+                            temporal = numeros[i];
+                            numeros[i] = numeros[i + 1];
+                            numeros[i + 1] = temporal;
+                        }
+                    } else {
+                        System.out.println("No hay un array creado");
+                    }
+                    break;
+                case 9:
+                    if (numeros != null) {
+                        System.out.println("Vas a invertir el array");
+                        for (int i = 0; i < numeros.length / 2; i++) {
+                            temporal = numeros[(numeros.length - 1) - i];
+                            numeros[(numeros.length - 1) - i] = numeros[i];
+                            numeros[i] = temporal;
+                        }
+                    } else {
+                        System.out.println("No hay un array creado");
+                    }
+                    break;
+                case 10:
+                    if (numeros != null) {
+                        for (int item : numeros) {
+                            System.out.print(item + "\t");
+                        }
+                        System.out.println();
+                    } else {
+                        System.out.println("No hay un array creado");
+                    }
+                    break;
+                case 11:
+                    System.out.println("Saliendo...");
+                    opcion = 10;
+                    break;
+                default:
+                    System.out.println("Esa no es una opcion, vuelve a intentarlo");
+            }
+        }while (opcion != 10);
+    }
+
 }
 //Hacer del 1 - 7.
