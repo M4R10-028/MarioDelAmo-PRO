@@ -509,7 +509,11 @@ public class EjerciciosArray {
                     }
                     break;
                 case 4:
-                    Arrays.sort(numeros);
+                    if (numeros!=null){
+                        Arrays.sort(numeros);
+                    } else {
+                        System.out.println("No hay un array creado");
+                    }
                     break;
                 case 5:
                     System.out.println("Cual es la nueva longitud");
