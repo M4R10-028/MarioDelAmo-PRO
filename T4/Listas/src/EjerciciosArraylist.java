@@ -1,6 +1,5 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class EjerciciosArraylist {
     private static Scanner scanner = new Scanner(System.in);
@@ -13,6 +12,7 @@ public class EjerciciosArraylist {
         //ejercicio3();
         //ejercicio4();
         //ejercicio5();
+        
     }
     public static void ejercicio1(){
         for (int i = 0; i < 10; i++) {
@@ -60,13 +60,8 @@ public class EjerciciosArraylist {
         ArrayList <Integer> numeros = new ArrayList<>();
         ArrayList <Integer> posicion = new ArrayList<>();
 
-        for (int i = 0; i < 20; i++) {
-            listaN1.add((int)(Math.random() * 21));
-        }
-
-        for (int i = 0; i < 20; i++) {
-            listaN2.add((int)(Math.random() * 21));
-        }
+        rellenarArray(listaN1,20);
+        rellenarArray(listaN2,20);
 
         for (int i = 0; i < 20; i++) {
             if (listaN1.get(i) == listaN2.get(i)){
@@ -80,6 +75,7 @@ public class EjerciciosArraylist {
         System.out.println("Las posiciones en las que se repiten");
         imprimir(posicion);
     }
+    //TODO el ejercicio no da lo que realmente tendría que dar
     public static void ejercicio5(){
         ArrayList <String> palabras = new ArrayList<>();
 
@@ -94,15 +90,15 @@ public class EjerciciosArraylist {
         palabras.add("Increible");
         palabras.add("Fantástico");
 
-        int mayor = palabras.get(0).length();
-        int menor = palabras.get(0).length();
+        String mayor = palabras.get(0);
+        String menor = palabras.get(0);
 
         for (int i = 0; i < palabras.size(); i++) {
-            if (palabras.get(i).length() <= menor){
-                menor = palabras.get(i).length();
+            if (palabras.get(i).length() <= menor.length()){
+                menor = palabras.get(i);
             }
-            if (palabras.get(i).length() >= mayor){
-                mayor = palabras.get(i).length();
+            if (palabras.get(i).length() >= mayor.length()){
+                mayor = palabras.get(i);
             }
         }
         for ( String item : palabras ) {
@@ -112,11 +108,50 @@ public class EjerciciosArraylist {
             System.out.println(" " + item.length());
         }
 
+        ordenarLista(palabras);
+
+        for ( String item : palabras ) {
+            System.out.println(palabras);
+        }
+
+        System.out.println("La palabra con mas letras es " + mayor);
+        System.out.println("La palabra con menos letras es " + menor);
+    }
+
+    public static void rellenarArray(ArrayList <Integer> lista, int numero){
+        for (int i = 0; i < numero; i++) {
+            lista.add(( int )( Math.random() * (numero + 1) ));
+        }
     }
 
     public static void imprimir(ArrayList objetos){
         for ( Object item : objetos ) {
             System.out.print(item + "   ");
         }
+    }
+
+    public static int repetidos (ArrayList <Integer> lista1, ArrayList <Integer> lista2) {
+        int repetidos = 0;
+        for (int i = 0; i < lista1.size(); i++) {
+            if (lista1.get(i) == lista2.get(i)){
+                repetidos++;
+            }
+        }
+        return repetidos;
+    }
+    public static void ordenarLista(ArrayList <String> lista){
+        Collections.sort(lista);//ordenados alfabeticamente
+        Collections.sort(lista, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                if (o1.length() > o2.length()){
+                return 1;
+                }if (o1.length() < o2.length()){
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        });
     }
 }
