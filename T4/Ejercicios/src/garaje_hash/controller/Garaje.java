@@ -13,8 +13,8 @@ public class Garaje {
 
     public void agregarCoche(){
         Object[] coche1 = {"1234A","Mercedes", "ClaseA", 10000, 150};
-        Object[] coche2 = {"2345B","Mercedes", "ClaseB", 20000, 250};
-        Object[] coche3 = {"3456C","Mercedes", "ClaseC", 30000, 350};
+        Object[] coche2 = {"2345B","Mercedes", "ClaseC", 20000, 250};
+        Object[] coche3 = {"3456C","Mercedes", "ClaseB", 30000, 350};
         Object[] coche4 = {"4567D","Mercedes", "ClaseD", 40000, 450};
 
         listaCoche.put(String.valueOf(coche1[0]),coche1);
