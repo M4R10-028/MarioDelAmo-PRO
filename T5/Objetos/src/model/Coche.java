@@ -5,7 +5,7 @@ public class Coche {
     //propiedades
     private String marca, modelo, color, matricula, bastidor;
     private double precio;
-    private int cv, par;
+    private int cv, par, km;
 
     //constructores -> por defecto tengo el constructor vacio sin escribir nada
     public Coche(){
@@ -48,6 +48,14 @@ public class Coche {
         this.par = (int) Math.pow(cv * 2, 2);
     }
 
+    public Coche(String marca, String modelo, String matricula, int cv){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.matricula = matricula;
+        this.cv = cv;
+        this.par = (int) Math.pow(cv * 2, 2);
+    }
+
     //metodos
     public void mostrarDatos(){
         System.out.println("La marca es: " + marca);
@@ -58,6 +66,15 @@ public class Coche {
         System.out.println("El precio es: " + precio);
         System.out.println("Los cavallos son: " + cv);
         System.out.println("El par es: " + par);
+        System.out.println("Los km son: " + km);
+    }
+
+    public int getKm() {
+        return km;
+    }
+
+    public void setKm(int km) {
+        this.km += km;
     }
 
     public String getModelo() {
