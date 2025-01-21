@@ -28,16 +28,16 @@ public class Carrera {
         for (int i = 0; i < 6; i++) {
             System.out.println("Añade al participantes (6 participantes)");
 
-            System.out.println("Dime la marca del coche");
+            System.out.println("Dime la marca del coche " + i+1);
             marca = sc.next();
 
-            System.out.println("Dime el modelo del coche");
+            System.out.println("Dime el modelo del coche " + i+1);
             modelo = sc.next();
 
-            System.out.println("Dime la matricula del coche");
+            System.out.println("Dime la matricula del coche " + i+1);
             matricula = sc.next();
 
-            System.out.println("Dime los cavallos del coche");
+            System.out.println("Dime los cavallos del coche " + i+1);
             cv = sc.nextInt();
 
             listaCoches.add(new Coche(marca,modelo,matricula,cv));
@@ -48,16 +48,16 @@ public class Carrera {
 
         for (int i = 0; i < vueltas; i++) {
             for (Coche coche : listaCoches) {
-                coche.setKm((int) ((Math.random() * 25) + 50));
+                coche.setKm((int) ((Math.random() * 26) + 50));
             }
         }
 
         listaCoches.sort(new Comparator<Coche>() {
             @Override
             public int compare(Coche o1, Coche o2) {
-                if ((int) o1.getKm() > (int) o2.getKm()){
+                if (o1.getKm() < o2.getKm()){
                     return 1;
-                } else if ((int) o1.getKm() < (int) o2.getKm()) {
+                } else if (o1.getKm() > o2.getKm()) {
                     return -1;
                 } else {
                     return 0;
@@ -65,11 +65,13 @@ public class Carrera {
             }
         });
 
+        System.out.println("El ganador es el coche: " + listaCoches.get(0).getMarca() + " - " + listaCoches.get(0).getModelo() + " - " + listaCoches.get(0).getKm() + " - " + listaCoches.get(0).getCv());
 
-
+        System.out.println("La clasificación final es:");
         for (Coche coche : listaCoches) {
-            System.out.println(coche.getKm() + " - " + coche.getMarca() + " - " + coche.getModelo() + " - " + coche.getCv());
-
+            int i = 1;
+            System.out.println(i + ". " + coche.getKm() + " - " + coche.getMarca() + " - " + coche.getModelo() + " - " + coche.getCv());
+            i++;
         }
     }
 }
