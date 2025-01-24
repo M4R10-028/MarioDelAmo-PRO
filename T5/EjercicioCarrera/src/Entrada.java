@@ -13,10 +13,10 @@ public class Entrada {
 
         System.out.println("Dime las vueltas de la carrera");
         vueltas = sc.nextInt();
-        Carrera carrera1 = new Carrera(vueltas,nombreCarrera);
+        Carrera carrera1 = new Carrera(3, "nurburing");
 
         carrera1.inscribirParticipante("Ford", "Focus", "1234A", 200);
-        carrera1.inscribirParticipante("Ford", "Focus", "1234B", 200);
+        carrera1.inscribirParticipante("Ford", "Focus", "1234A", 200);
         carrera1.inscribirParticipante("Ford", "Focus", "1234C", 200);
         carrera1.inscribirParticipante("Ford", "Focus", "1234D", 200);
         carrera1.inscribirParticipante("Ford", "Focus", "1234E", 200);
@@ -29,7 +29,7 @@ public class Entrada {
 
         carrera1.mostrarParticipantes();
 
-        carrera1.iniciarCarrera(vueltas, nombreCarrera);
+        carrera1.iniciarCarrera();
 
         carrera1.mostrarGanador();
 

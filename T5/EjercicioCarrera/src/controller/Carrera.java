@@ -2,7 +2,6 @@ package controller;
 
 import model.Coche;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -11,7 +10,7 @@ public class Carrera {
 
     static Scanner sc = new Scanner(System.in);
 
-    private boolean apto = true, desinscrito = true;
+    private boolean apto, desinscrito = false;
     private int vueltas, cv;
     private String nombre, marca, modelo, matricula;
     private Coche ganador;
@@ -27,6 +26,7 @@ public class Carrera {
         Coche coche = new Coche(marca, modelo, matricula,cv);
         if (!participantes.isEmpty()) {
             for (int i = 0; i < participantes.size(); i++) {
+                apto = true;
                 if (participantes.size() > 8) {
                     System.out.println("La carrera ya está llena");
                     apto = false;
@@ -74,36 +74,34 @@ public class Carrera {
         }
     }
 
-    public void iniciarCarrera(int vueltas, String nombre){
-        this.nombre = nombre;
-        for (int i = 0; i < vueltas; i++) {
-            for ( Coche coche : participantes ) {
-                int aleatorio = (int) ((Math.random() * 26) + 50);
-                coche.settKm(aleatorio);
-                coche.setKm(aleatorio);
-            }
-            System.out.println("La clasificacion en la vuelta " + (i + 1) + " ha sido así: ");
-
-            participantes.sort(new Comparator<Coche>() {
-                @Override
-                public int compare(Coche o1, Coche o2) {
-                    if (o1.gettKm() > o2.gettKm()){
-                        return -1;
-                    } else if (o1.gettKm() < o2.gettKm()) {
-                        return 1;
-                    }
-                    return 0;
+    public void iniciarCarrera(){
+        if (participantes.size() == 8){
+            for (int i = 0; i < vueltas; i++) {
+                for ( Coche coche : participantes ) {
+                    int aleatorio = (int) ((Math.random() * 26) + 50);
+                    coche.settKm(aleatorio);
+                    coche.setKm(aleatorio);
                 }
-            });
-            int j = 1;
-            for ( Coche coche : participantes ) {
-                System.out.println(j + ". " + coche.getMarca() + " " + coche.getMatricula() + " " + coche.gettKm());
-                j++;
+                System.out.println("La clasificacion en la vuelta " + (i + 1) + " ha sido así: ");
+
+                ordenarLista();
+
+                int j = 1;
+                for ( Coche coche : participantes ) {
+                    System.out.println(j + ". " + coche.getMarca() + " " + coche.getMatricula() + " " + coche.gettKm());
+                    j++;
+                    try{
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e){
+                        throw new RuntimeException(e);
+                    }
+                }
             }
         }
+
     }
 
-    public void mostrarGanador(){
+    private void ordenarLista(){
         participantes.sort(new Comparator<Coche>() {
             @Override
             public int compare(Coche o1, Coche o2) {
@@ -115,24 +113,16 @@ public class Carrera {
                 return 0;
             }
         });
+    }
 
+    public void mostrarGanador(){
+        ordenarLista();
         System.out.println("El ganador ha sido el participante del coche " + participantes.get(0).getMarca() + " " + participantes.get(0).getMatricula() + " " + participantes.get(0).getKm());
     }
 
     public void mostrarClasificacion(){
+        ordenarLista();
         int i = 1;
-        participantes.sort(new Comparator<Coche>() {
-            @Override
-            public int compare(Coche o1, Coche o2) {
-                if (o1.getKm() > o2.getKm()){
-                    return -1;
-                } else if (o1.getKm() < o2.getKm()) {
-                    return 1;
-                }
-                return 0;
-            }
-        });
-
         for ( Coche coche : participantes ) {
             System.out.println(i + ". " + coche.getMarca() + " " + coche.getModelo() + " " + coche.getMatricula() + " " + coche.getKm());
             i++;
