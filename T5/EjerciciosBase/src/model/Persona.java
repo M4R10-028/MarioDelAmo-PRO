@@ -61,26 +61,28 @@ public class Persona {
         System.out.println("La persona es hombre o mujer (h / m)");
         String genero = sc.next();
         if (genero.equalsIgnoreCase("m")){
-            if (calcularIMC() < 18.5){
+            if (calcularIMC() < 20){
                 System.out.println("Peso inferior a lo normal");
-            } else if (calcularIMC() > 25 && calcularIMC() < 29.9){
-                System.out.println("Peso superior a lo normal");
-            } else if (calcularIMC() >= 30){
-                System.out.println("Obesidad");
-            } else {
-                System.out.println("Normal");
-            }
-        } else {
-            if (calcularIMC() < 18.5){
-                System.out.println("Peso inferior a lo normal");
-            } else if (calcularIMC() > 20 && calcularIMC() < 27){
-                System.out.println("Peso superior a lo normal");
+            } else if (calcularIMC() >= 20 && calcularIMC() < 27){
+                System.out.println("Peso normal");
+            } else if (calcularIMC() >= 27 && calcularIMC() < 30){
+                System.out.println("Sobrepeso");
             } else if (calcularIMC() >= 30 && calcularIMC() < 40){
                 System.out.println("Obesidad");
-            } else if (calcularIMC() > 40) {
-                System.out.println("Obesidad mórbida");
             } else {
-                System.out.println("Normal");
+                System.out.println("Obesidad Mórbida");
+            }
+        } else {
+            if (calcularIMC() < 20){
+                System.out.println("Peso inferior a lo normal");
+            } else if (calcularIMC() >= 20 && calcularIMC() < 25){
+                System.out.println("Peso normal");
+            } else if (calcularIMC() >= 25 && calcularIMC() < 30){
+                System.out.println("Sobrepeso");
+            } else if (calcularIMC() >= 30 && calcularIMC() < 40) {
+                System.out.println("Obesidad");
+            } else {
+                System.out.println("Obesidad Mórbida");
             }
         }
 
