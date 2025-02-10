@@ -16,6 +16,9 @@ public class Entrada {
 
         do {
             System.out.println("1. Añadir coche");
+            System.out.println("2. Listar coches");
+            System.out.println("3. Buscar coche");
+            System.out.println("4. Mostrar costes");
             System.out.println("6. Salir");
             System.out.println("Que opcion quieres realizar");
             opcion = scanner.nextInt();
@@ -35,6 +38,24 @@ public class Entrada {
                     coste = scanner.nextInt();
 
                     garaje.anadirCoche(matricula,marca,modelo,coste);
+                    break;
+                case 2:
+                    garaje.listarCoches();
+                    break;
+                case 3:
+                    System.out.println("Dime la matricula del coche que estas buscando");
+                    matricula = scanner.next();
+
+                    garaje.estaCoche(matricula);
+                    break;
+                case 4:
+                    garaje.mostrarcostes();
+                    break;
+                case 5:
+                    System.out.println("Escribe la matricula del coche que quieres borrar");
+                    matricula = scanner.next();
+
+                    garaje.borrarCoche(matricula);
                     break;
                 case 6:
                     System.out.println("Saliendo...");

@@ -17,10 +17,26 @@ public class Garaje {
             System.out.println("No se ha podido añadir, ese coche ya esta en el garaje");
         }
     }
-    private boolean estaCoche(String matricula){
+    public boolean estaCoche(String matricula){
         if (listaCoches.containsKey(matricula)){
             return true;
         }
         return false;
+    }
+    public void listarCoches(){
+        for ( Object[] coche : listaCoches.values()){
+            System.out.print(coche + " - ");
+        }
+        System.out.println();
+    }
+    public void mostrarcostes(){
+        int costes = 0;
+        for ( Object[] coche : listaCoches.values() ){
+            costes = (int) coche[3];
+        }
+        System.out.println("El coste total de los coches guardados es de " + costes);
+    }
+    public void borrarCoche(String matricula){
+        listaCoches.remove(matricula);
     }
 }
