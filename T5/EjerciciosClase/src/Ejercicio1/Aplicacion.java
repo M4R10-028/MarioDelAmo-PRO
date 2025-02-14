@@ -62,5 +62,6 @@ public class Aplicacion {
                 + "CV: " + coche2.getMotor().getCv() + "\n"
                 + "Litros de Aceite: " + coche2.getMotor().getLitrosAceite() + "\n"
                 + "Precio de las averias: " + coche2.getPrecioAverias());
+
     }
 }
