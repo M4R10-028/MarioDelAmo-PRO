@@ -1,8 +1,10 @@
-import controller.Coleccion;
-import model.Elemento;
-import model.Libro;
-import model.Persona;
-import model.Video;
+package Ejercicio1;
+
+import Ejercicio1.controller.Coleccion;
+import Ejercicio1.model.Elemento;
+import Ejercicio1.model.Libro;
+import Ejercicio1.model.Persona;
+import Ejercicio1.model.Video;
 
 import java.util.ArrayList;
 import java.util.Scanner;

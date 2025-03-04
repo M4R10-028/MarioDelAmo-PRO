@@ -1,5 +1,5 @@
 package model;
 
 public interface Empleador {
-    public void realizarTrabajo();
+    public boolean realizarTrabajo(int numeroHoras);
 }

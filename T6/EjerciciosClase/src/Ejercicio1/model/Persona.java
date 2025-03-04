@@ -1,4 +1,4 @@
-package model;
+package Ejercicio1.model;
 
 public class Persona {
 

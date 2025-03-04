@@ -1,11 +1,10 @@
-package controller;
+package Ejercicio1.controller;
 
-import model.Audio;
-import model.Elemento;
-import model.Libro;
-import model.Video;
+import Ejercicio1.model.Audio;
+import Ejercicio1.model.Elemento;
+import Ejercicio1.model.Libro;
+import Ejercicio1.model.Video;
 
-import javax.swing.border.LineBorder;
 import java.util.ArrayList;
 
 public class Coleccion {

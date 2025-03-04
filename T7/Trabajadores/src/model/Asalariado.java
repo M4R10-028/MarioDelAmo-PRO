@@ -1,6 +1,6 @@
 package model;
 
-public class Asalariado extends Trabajador implements Empleador {
+public class Asalariado extends Trabajador implements Empleador, Sindicador {
 
     private double retencion;
     private int numeroPagas;
@@ -50,7 +50,17 @@ public class Asalariado extends Trabajador implements Empleador {
     }
 
     @Override
-    public void realizarTrabajo() {
+    public boolean realizarTrabajo(int numeroHoras) {
+        System.out.println("El asalariado se dispone a realizar el trabajo");
+        return true;
+    }
 
+    @Override
+    public void realizarHuelga() {
+        if (realizarTrabajo((int) (Math.random() * 10))){
+            System.out.println("El asalariado no ha realizado la huelga");
+        } else {
+            System.out.println("El asalariado ha empezado la huelga");
+        }
     }
 }

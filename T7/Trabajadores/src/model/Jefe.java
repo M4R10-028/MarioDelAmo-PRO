@@ -20,7 +20,8 @@ public class Jefe extends Trabajador implements Empleador {
     }
 
     @Override
-    public void realizarTrabajo() {
-
+    public boolean realizarTrabajo(int numeroHoras) {
+        System.out.println("El jefe se dispone a realizar el trabajo");
+        return true;
     }
 }
