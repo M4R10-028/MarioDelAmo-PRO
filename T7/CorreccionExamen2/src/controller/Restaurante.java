@@ -2,6 +2,8 @@ package controller;
 
 import model.Cliente;
 import model.Consumicion;
+import util.DatosFiscales;
+import util.Proveedor;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,9 +12,34 @@ public class Restaurante {
     static Scanner sc = new Scanner(System.in);
     private ArrayList<Cliente> listaClientes;
     private double caja;
+    private Proveedor proveedor;
 
     public Restaurante(){
         listaClientes = new ArrayList<>();
+        this.proveedor = proveedor;
+    }
+
+    public Restaurante(Proveedor proveedor){
+        listaClientes = new ArrayList<>();
+        this.proveedor = proveedor;
+    }
+    public void mostrarDatosFiscales(){
+        System.out.println("El NIF es " + DatosFiscales.NIF);
+        System.out.println("La direccion es " + DatosFiscales.DIR_FISCAL);
+        System.out.println("El IVA aplicado es " + DatosFiscales.IVA);
+    }
+
+    public void informacionProveedor(){
+        if (proveedor == null){
+            System.out.println("El restaurante no tiene aun un proveedor asociado");
+        } else {
+            System.out.println("Estos son los datos del proveedor");
+            //nombre del enum -> COCACOLA / MAHOU / COMIDASSL / BEBIDASSL
+            System.out.println("El nombre del proveedor es: " + proveedor.name());
+            System.out.println(proveedor.getNombre());
+            System.out.println(proveedor.getContacto());
+            System.out.println(proveedor.getDescuento());
+        }
     }
 
     public void agregarCliente(Cliente cliente) {
@@ -106,5 +133,30 @@ public class Restaurante {
 
     public void mostrarCajaRestaurante(){
         System.out.println(caja);
+    }
+
+
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(ArrayList<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
+    public double getCaja() {
+        return caja;
+    }
+
+    public void setCaja(double caja) {
+        this.caja = caja;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 }

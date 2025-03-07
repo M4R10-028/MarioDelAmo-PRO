@@ -1,6 +1,6 @@
 package model;
 
-public class Bebida extends Consumicion{
+public class Bebida extends Consumicion implements Inventariable{
     private int minilitros;
 
     public Bebida(){}
@@ -28,5 +28,10 @@ public class Bebida extends Consumicion{
 
     public void setMinilitros(int minilitros) {
         this.minilitros = minilitros;
+    }
+
+    @Override
+    public void almacenar() {
+        System.out.println("Esta consumicion se almacena guardandola apilandola en el almacen");
     }
 }
