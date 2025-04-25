@@ -10,7 +10,7 @@ public class Entrada {
     public static void main(String[] args) {
         //Connection connection = DBConnector.getConnection();
         UsuarioDTO usuarioDTO = new UsuarioDTO();
-        Usuario usuario = new Usuario(1,"Marcos","Lopez","marcos@gmail.com","pass",0,0);
+        Usuario usuario = new Usuario(1,"Marcos","Lopez","marcos@gmail.com","pass",0);
         //usuarioDTO.insertarUsuario(usuario);
         /*boolean fallo = false;
         do {
