@@ -1,6 +1,5 @@
 package dto;
 
-import com.mysql.cj.protocol.Resultset;
 import database.DBConnection;
 import model.Alumno;
 

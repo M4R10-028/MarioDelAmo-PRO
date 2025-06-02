@@ -4,8 +4,6 @@ package dto;
 import model.Coches;
 import database.SchemaDB;
 
-import javax.xml.validation.Schema;
-import java.nio.channels.SelectableChannel;
 import java.sql.*;
 
 public class CochesDTO {
@@ -60,7 +58,7 @@ public class CochesDTO {
     }
 
     public boolean selectMatricula(String matricula){
-        String query = String.format("SELECT INTO %S WHERE %s = ?", SchemaDB.TAB_COCHES, SchemaDB.COLC_MATRICULA);
+        String query = String.format("SELECT * FROM %s WHERE %s = ?",SchemaDB.COLC_MATRICULA, SchemaDB.TAB_COCHES, SchemaDB.COLC_MATRICULA);
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1,matricula);
@@ -71,6 +69,5 @@ public class CochesDTO {
         }finally {
             return false;
         }
-
     }
 }
