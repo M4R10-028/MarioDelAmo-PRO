@@ -1,0 +1,9 @@
+import math
+
+num1 = int(input("Introduce el primer numero: "))
+num2 = int(input("Ingresa el segundo numero: "))
+math1 = math.sqrt(num1)
+
+suma = math1 + num2
+
+print("La suma es: ", suma)
