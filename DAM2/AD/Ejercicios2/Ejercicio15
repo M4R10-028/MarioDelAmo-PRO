@@ -1,0 +1,10 @@
+cadena = str(input("Introduce unqa cadena de texto"))
+
+a = str("a")
+contador = 0
+
+for letra in cadena:
+    if letra == a:
+        contador += 1
+        
+print("En la cadena habian", contador, "a")

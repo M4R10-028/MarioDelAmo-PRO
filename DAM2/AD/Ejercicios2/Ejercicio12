@@ -1,0 +1,7 @@
+import math
+
+radio = int(input("Dime el radio del circulo"))
+
+area = (radio * radio) * math.pi
+
+print("El area del circulo es:", area)

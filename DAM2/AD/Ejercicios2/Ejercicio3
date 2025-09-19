@@ -1,0 +1,11 @@
+def esPrimo(num):
+    for primo in range(2,num):
+        if (num % primo == 0):
+            return False
+        
+    return True
+    
+print("Los numeros primos son: ")
+for numero in range(1,51):
+    if esPrimo(numero) :
+        print(numero)

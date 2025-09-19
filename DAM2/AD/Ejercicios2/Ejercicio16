@@ -1,0 +1,6 @@
+import math
+
+num1 = int(input("Primer numero para el mcd: "))
+num2 = int(input("Segundo numero para el mcd: "))
+
+print("El máximo común divisor de ", num1, "y", num2, "es", math.gcd(num1, num2))

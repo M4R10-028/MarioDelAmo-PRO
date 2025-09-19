@@ -1,0 +1,13 @@
+palabra = str(input("Ingresa la palabra para comprobar si es palindroma: "))
+longitud = int(len(palabra))
+i = 1
+palindroma = True
+
+for letra in range(0,longitud//2 - 1):
+    if palabra[letra] != palabra[longitud-i]:
+        palindroma = False
+    i += 1
+if palindroma:
+    print("Es una palabra palindroma")
+else:
+    print("No es una palabra palindroma")

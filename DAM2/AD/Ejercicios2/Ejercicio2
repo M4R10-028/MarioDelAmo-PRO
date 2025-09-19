@@ -1,0 +1,7 @@
+num = int(input("Ingrese un numero para calcular un factorial"))
+factorial = num
+
+for fact in range(1,num):
+    factorial = factorial * fact
+    
+print("EL factorial de", num, "es de", factorial)

@@ -1,0 +1,10 @@
+import random
+
+num = int(input("Ingrese el numero para adivinar el numero entre el 1 y el 10"))
+
+aleatorio = random.randint(1,11)
+
+if num == aleatorio:
+    print("Has adivinado el numero")
+else:
+    print("Has perdido, el numero era", aleatorio)

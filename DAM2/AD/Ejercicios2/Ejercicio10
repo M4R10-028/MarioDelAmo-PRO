@@ -1,0 +1,15 @@
+entrada = str(input("Ingresa una palabra"))
+
+a = str("a")
+e = str("e") 
+i = str("i")
+o = str("o")
+u = str("u")
+
+contador = 0
+
+for letra in entrada:
+    if letra == a or letra == e or letra == o or letra == i or letra == u:
+        contador += 1
+    
+print("En la palabra hay", contador, "vocales") 

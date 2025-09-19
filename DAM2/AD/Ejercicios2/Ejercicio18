@@ -1,0 +1,27 @@
+import random
+
+eleccion = str(input("Piedra, Papel, Tijeras"))
+ordenador = ""
+elec = random.randint(1,4)
+
+if elec == 1:
+    ordenador = "Piedra"
+elif elec == 2:
+    ordenador = "Papel"
+else:
+    ordenador = "Tijeras"
+    
+if eleccion == ordenador:
+    print("Empate")
+elif eleccion == "Piedra" and ordenador == "Papel":
+    print("El ordenador ha sacado papel, has perdido")
+elif eleccion == "Piedra" and ordenador == "Tijeras":
+    print("El ordenador ha sacado tijeras, has ganado")
+elif eleccion == "Papel" and ordenador == "Piedra":
+    print("El ordenador ha sacado piedra, has ganado")
+elif eleccion == "Papel" and ordenador == "Tijeras":
+    print("El ordenador ha sacado tijeras, has perdido")
+elif eleccion == "Tijeras" and ordenador == "Piedra":
+    print("El ordenador ha sacado piedra, has perdido")
+else:
+    print("El ordenador ha sacado papel, has ganado")

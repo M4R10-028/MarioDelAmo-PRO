@@ -1,0 +1,9 @@
+numero = int(input("Dame el número: "))
+
+suma = 0
+n = numero
+while n > 0:
+    suma += n % 10   
+    n //= 10         
+
+print("La suma de las cifras del numero", numero, "es:", suma)
