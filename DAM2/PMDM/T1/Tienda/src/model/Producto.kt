@@ -1,6 +1,6 @@
 package model
 
-class Producto(var id : Int, var precio : Double = 10.0, var nombre: String? = null, var descripcion: String? = null) {
+class Producto(var id : Int, var precio : Double = 10.0, var nombre: String? = null, var descripcion: String? = null, var categoria: Categoria = Categoria.Generica) {
 
     //Las cosas obligatorias las defino arriba, las que no, aquí
     //id
@@ -9,6 +9,6 @@ class Producto(var id : Int, var precio : Double = 10.0, var nombre: String? = n
     //descripcion
 
     override fun toString(): String {
-        return "Producto: \nID=$id \nPrecio=$precio \nNombre='${nombre ?: "SIN NOMBRE"}' \nDescripcion='${descripcion ?: "SIN DEFINIR"}' \n"
+        return "Producto: \nID=$id \nPrecio=$precio \nNombre='${nombre ?: "SIN NOMBRE"}' \nDescripcion='${descripcion ?: "SIN DEFINIR" }' \nCategoria= $categoria\n"
     }
 }
