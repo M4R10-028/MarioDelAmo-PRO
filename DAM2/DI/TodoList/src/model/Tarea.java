@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Tarea {
@@ -8,11 +9,19 @@ public class Tarea {
     //cuando se crea la tarea es necesario pedir cuantas personas (NO QUE PERSONAS)
     //encargaran de la tarea
 
+    //crear el metodo que permite agregar un encargo
+        //los encargos deben tener un id unico -> PONER AVISOS
+    //crear un metodo para eliminar un encargo
+        //para ello se pide al usuario el id del encargo y se quita de la lista -> PONER AVISOS
+
     //variables
     private String titulo, descripcion;
     private boolean prioritario, completada;
     private Persona[] personas;
     private int huecos;
+
+    private ArrayList<Encargo> listaTareas;
+
     //contructores
 
     public Tarea() {
@@ -23,6 +32,7 @@ public class Tarea {
         this.descripcion = descripcion;
         this.prioritario = prioritario;
         personas = new Persona[encargados];
+        listaTareas = new ArrayList<>();
         //completada = false ya que un boolean no puede ser nulo se pone automaticamente como false
     }
 
@@ -30,6 +40,7 @@ public class Tarea {
         this.titulo = titulo;
         this.descripcion = descripcion;
         personas = new Persona[encargados];
+        listaTareas = new ArrayList<>();
     }
 
     //cada tarea puede asignar una persona
@@ -106,6 +117,107 @@ public class Tarea {
 
     }
 
+    private Encargo estaId (int id){
+        if (listaTareas.isEmpty()){
+            return null;
+        }
+        for (Encargo encargo : listaTareas) {
+            if (encargo.getId() == id){
+                return encargo;
+            }
+        }
+
+        return null;
+    }
+
+    public void agregarEncargo(Encargo encargo) {
+        if (estaId(encargo.getId()) != null){
+            System.out.println("En la lista ya hay un encargo con este id");
+        } else {
+            listaTareas.add(encargo);
+            System.out.println("El encargo ha sido añadido correctamente");
+        }
+    }
+
+    public void eliminarEncargo(int id) {
+        if (estaId(id) == null){
+            System.out.println("En la lista no habia ninguno con ese id, la lista no ha sido modificada");
+        } else {
+            listaTareas.remove(estaId(id));
+            System.out.printf("El encargo con id %d ha sido eliminado%n", id);
+        }
+    }
+
+    /*
+    Listar todos los encargos de una tarea
+    */
+
+    public void mostrarEncargos() {
+        for (Encargo encargo : listaTareas) {
+            System.out.println(encargo.toString());
+        }
+    }
+
+    /*
+    Buscar un encargo por id
+    */
+
+    public void buscarEncargoId(int id) {
+        if (estaId(id) != null){
+            System.out.println(estaId(id).toString());
+        }
+        else {
+            System.out.println("Este encargo no esta");
+        }
+    }
+
+    /*
+    Completar un encargo -> pasar su variable completada a true
+    */
+
+    public void completarEncargo(int id){
+        if (estaId(id) != null && !estaId(id).isCompleta()){
+            estaId(id).setCompleta(true);
+            System.out.println("Encargo completado");
+        } else {
+            System.out.println("Ese encargo no existe, no esta en la lista o ya esta completado");
+        }
+    }
+
+    /*
+    Mostrar encargos que estan completados
+    */
+
+    public void mostrarCompletados() {
+        for (Encargo encargo : listaTareas) {
+            if (encargo.isCompleta()){
+                System.out.println(encargo.toString());
+            }
+        }
+    }
+
+    /*
+    Completar una tarea -> Una tarea quedara como completa si todos sus encargos
+    estan completados
+    */
+
+    public void completarTarea (Tarea tarea) {
+        for (Encargo encargo : listaTareas) {
+            if (!encargo.isCompleta()){
+                System.out.println("No se puede completar la tarea, hay encargos sin completar");
+                return;
+            }
+        }
+        tarea.setCompletada(true);
+        System.out.println("La tarea ha sido completada");
+    }
+    /*
+    Crear los metodos de:
+    asignar un encargo
+     */
+
+
+
     //metodos -> getter/setter
 
 
@@ -139,6 +251,22 @@ public class Tarea {
 
     public void setCompletada(boolean completada) {
         this.completada = completada;
+    }
+
+    public Persona[] getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(Persona[] personas) {
+        this.personas = personas;
+    }
+
+    public ArrayList<Encargo> getListaTareas() {
+        return listaTareas;
+    }
+
+    public void setListaTareas(ArrayList<Encargo> listaTareas) {
+        this.listaTareas = listaTareas;
     }
 
     @Override
