@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Tarea {
+abstract public class Tarea {
 
     //una tarea tiene asociadas una serie de personas
     //cuando se crea la tarea es necesario pedir cuantas personas (NO QUE PERSONAS)
@@ -42,6 +42,8 @@ public class Tarea {
         personas = new Persona[encargados];
         listaTareas = new ArrayList<>();
     }
+
+    public abstract void enviarRecordatorio();
 
     //cada tarea puede asignar una persona
     //solo se podra asignar una persona si hay hueco disponible

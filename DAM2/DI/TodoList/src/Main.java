@@ -1,10 +1,11 @@
-import model.Encargo;
-import model.Persona;
-import model.Tarea;
+import model.*;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        Tarea tarea = new Tarea("Practica 01", "Este practica de DI es de hacer un programa todolist", 6);
+        /*Tarea tarea = new Tarea("Practica 01", "Este practica de DI es de hacer un programa todolist", 6);
 
         //tarea.asignarPersona(new Persona("Alejandro","Cano Caballero","1234A",19));
         //tarea.asignarPersona(new Persona("Daniel","Cano Caballero","1234B",17));
@@ -27,6 +28,19 @@ public class Main {
         tarea.completarEncargo(4);
         tarea.completarTarea(tarea);
 
+         */
+
+        TareaProfesional tareaProfesional = new TareaProfesional("TareaP1","Descripcion",true,5,100000,new Date());
+
+        TareaPersonal tareaPersonal = new TareaPersonal("TareaPer1", "decripcion", 4,"Alcorcon");
+
+        ArrayList<Tarea> tareas = new ArrayList<>();
+        tareas.add(tareaProfesional);
+        tareas.add(tareaPersonal);
+
+        for (Tarea tarea1 : tareas) {
+            System.out.println(tarea1);
+        }
 
     }
 }
