@@ -8,6 +8,7 @@ for i in range(1, numero+1):
         num = int(input())
         numeros.append(num)
     print()
+
 print("-----------------------------------")
 print()
 print("-----------------------------------")
