@@ -97,7 +97,7 @@ else:
     print("Has perdido, el numero era", aleatorio)
 
 9.
-Ejercicio de listas
+#Ejercicio de listas
 10.
 entrada = str(input("Ingresa una palabra"))
 
@@ -188,7 +188,7 @@ print("El máximo común divisor de ", num1,
       "y", num2, "es", math.gcd(num1, num2))
 
 17.
-Ejercicio de listas
+# Ejercicio de listas
 
 
 18.

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="CONTADOR APP"
+            android:gravity="center"
+            android:textSize="30sp"
+            />
+
+        <TextView
+            android:id="@+id/NumeroContador"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.30"
+            android:text="0"
+            android:gravity="center"
+            android:textSize="50sp"/>
+
+        <Button
+            android:id="@+id/botonIncremento"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.30"
+            android:text="+"
+            android:textSize="50sp"/>
+
+        <Button
+            android:id="@+id/botonDecremento"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:text="-"
+            android:textSize="50sp"/>
+
+</LinearLayout>

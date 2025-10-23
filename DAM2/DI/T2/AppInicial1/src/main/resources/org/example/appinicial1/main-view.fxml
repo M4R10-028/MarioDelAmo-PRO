@@ -43,4 +43,7 @@
             <Insets left="50.0" right="50.0" />
          </BorderPane.margin></TextField>
    </center>
+   <right>
+      <Button fx:id="botonLimpiar" mnemonicParsing="false" text="Limpiar" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>
