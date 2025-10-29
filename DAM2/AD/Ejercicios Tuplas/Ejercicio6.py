@@ -1,4 +1,8 @@
-letra = input("Introduce una letra: ")
+a = input("Introduce una letra: ")
+x = input("Introduce un número: ")
 
-if len(letra) != 1:
-    a = input("Entrada inválida. Introduce solo una letra: ")
+if x.isdigit():
+    x = int(x)
+
+mi_tupla = (a, x)
+print(mi_tupla)
