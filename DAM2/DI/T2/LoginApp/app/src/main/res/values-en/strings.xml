@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LoginApp</string>
+    <string name="text_login">Login</string>
+    <string name="text_recordar">Remember Password</string>
+    <string name="text_pass">Insert password</string>
+    <string name="text_correo">Insert mail</string>
+    <string name="text_data">Wrong data</string>
+    <string-array name="plataformas">
+        <item>Google</item>
+        <item>Facebook</item>
+        <item>GitHub</item>
+    </string-array>
+</resources>
