@@ -13,11 +13,12 @@ module org.example.formularioapp {
     requires java.desktop;
 
     requires lombok;
+    requires java.sql;
 
-    opens org.example.formularioapp to javafx.fxml;
+    opens org.example.formularioapp to javafx.fxml, java.sql;
     exports org.example.formularioapp;
     exports org.example.formularioapp.controller;
-    opens org.example.formularioapp.controller to javafx.fxml;
+    opens org.example.formularioapp.controller to javafx.fxml, java.sql;
     exports org.example.formularioapp.model;
-    opens org.example.formularioapp.model to lombok;
+    opens org.example.formularioapp.model to lombok, java.sql;
 }

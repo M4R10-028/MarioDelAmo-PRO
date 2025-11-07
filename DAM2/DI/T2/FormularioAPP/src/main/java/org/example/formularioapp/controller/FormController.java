@@ -26,6 +26,9 @@ import java.util.ResourceBundle;
 public class FormController implements Initializable {
 
     @FXML
+    private MenuItem menuEliminar, menuDetalle, menuLista;
+
+    @FXML
     private Button botonAgregar;
 
     @FXML
@@ -83,6 +86,9 @@ public class FormController implements Initializable {
         botonAgregar.setOnAction(new ManejoActions());
         botonEliminar.setOnAction(new ManejoActions());
         botonDetalle.setOnAction(new ManejoActions());
+        menuDetalle.setOnAction(new ManejoActions());
+        menuEliminar.setOnAction(new ManejoActions());
+        menuLista.setOnAction(new ManejoActions());
         checkDisponibilidad.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue,
@@ -144,6 +150,12 @@ public class FormController implements Initializable {
         return null;
     }
 
+    public void actualizarUsuario(Usuario u) {
+        //actualizar el usuario
+        System.out.println("Contestacion realizada con exito");
+    }
+
+
     class ManejoActions implements EventHandler<ActionEvent> {
 
         @Override
@@ -182,7 +194,7 @@ public class FormController implements Initializable {
                 }
 
 
-            } else if (actionEvent.getSource() == botonEliminar) {
+            } else if (actionEvent.getSource() == botonEliminar || actionEvent.getSource() == menuEliminar) {
                 if (listViewUsuarios.getSelectionModel().getSelectedIndex() != -1){
                     listaUsuarios.remove(listViewUsuarios.getSelectionModel().getSelectedIndex());
                     System.out.println("Borrado correctamente");
@@ -203,7 +215,7 @@ public class FormController implements Initializable {
                     ventanaDialogo.setTitle("Confirmacion");
                     ventanaDialogo.show();
                 }
-            } else if (actionEvent.getSource() == botonDetalle) {
+            } else if (actionEvent.getSource() == botonDetalle || actionEvent.getSource() == menuDetalle) {
                 int posicionSeleccionada = listViewUsuarios.getSelectionModel().getSelectedIndex();
                 if (posicionSeleccionada != -1){
                     Usuario usuario = listViewUsuarios.getSelectionModel().getSelectedItem();
@@ -214,6 +226,7 @@ public class FormController implements Initializable {
                         root = loader.load();
                         DialogoController dialogoController = loader.getController();
                         dialogoController.setUsuario(usuario);
+                        dialogoController.setFormController(FormController.this);
                         Scene scene = new Scene(root);
                         ventanaDetalle.setScene(scene);
                         ventanaDetalle.initModality(Modality.APPLICATION_MODAL);
@@ -226,7 +239,11 @@ public class FormController implements Initializable {
                 Usuario usuarioSeleccionado = listViewUsuarios.getSelectionModel().getSelectedItem();
                 System.out.println("La posicion seleccionada es: " + posicionSeleccionada);
                 System.out.println("El elemento seleccionado es: " + usuarioSeleccionado);
+
+            } else if (actionEvent.getSource() == menuLista) {
+                toggleLista.setSelected(!toggleLista.isSelected());
             }
+
         }
     }
 }
