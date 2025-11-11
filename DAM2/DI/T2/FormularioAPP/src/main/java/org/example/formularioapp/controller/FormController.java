@@ -17,10 +17,12 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.formularioapp.HelloApplication;
+import org.example.formularioapp.dao.UsuarioDAOimp;
 import org.example.formularioapp.model.Usuario;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class FormController implements Initializable {
@@ -74,6 +76,8 @@ public class FormController implements Initializable {
     private ObservableList<Integer> listaEdades;
     private ObservableList<Usuario> listaUsuarios;
 
+    private UsuarioDAOimp usuarioDAOimp;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -111,16 +115,17 @@ public class FormController implements Initializable {
     }
 
     private void instancias() {
+        usuarioDAOimp = new UsuarioDAOimp();
         grupoGenero = new ToggleGroup();
         grupoGenero.getToggles().addAll(radioMasculino, radioFemenino);
         listaEdades = FXCollections.observableArrayList();
-        listaUsuarios = FXCollections.observableArrayList();
-        for (int i = 18; i < 91; i++) {
-            listaEdades.add(i);
-        }
+        listaUsuarios = FXCollections.observableArrayList(usuarioDAOimp.obtenerUsuarios());
     }
 
     private void initGUI() {
+        for (int i = 18; i < 91; i++) {
+            listaEdades.add(i);
+        }
         listViewUsuarios.setItems(listaUsuarios);
         comboEdad.setItems(listaEdades);
         botonAgregar.setDisable(!checkDisponibilidad.isSelected());
@@ -162,7 +167,6 @@ public class FormController implements Initializable {
         public void handle(ActionEvent actionEvent) {
             if (actionEvent.getSource() == botonAgregar) {
 
-
                 if (!textfieldNombre.getText().isEmpty()
                         && !textfieldCorreo.getText().isEmpty()
                         && !textfieldLocalizacion.getText().isEmpty()
@@ -176,6 +180,27 @@ public class FormController implements Initializable {
                     boolean disponibilidad = checkDisponibilidad.isSelected();
                     int edad = comboEdad.getSelectionModel().getSelectedItem();
 
+                    Usuario usuario = new Usuario(
+                            nombre,correo,localizacion,genero,edad,disponibilidad
+                    );
+                    boolean fallo = false;
+                    try {
+                        usuarioDAOimp.insertarUsuario(usuario);
+                    } catch (SQLException e) {
+                        fallo = true;
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error en la insercion");
+                        alert.setContentText("Mail duplicado, por favor introduzce uno nuevo");
+                        alert.show();
+                    }
+                    if (!fallo){
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Insertado correctamente");
+                        alert.setContentText("Usuario insertado correctamente");
+                        alert.show();
+                        limpiarDatos();
+                    }
+                    /*
                     if (estaUsuario(correo) != null){
                         System.out.println("El usuario ya esta en la lista");
                     } else {
@@ -187,7 +212,7 @@ public class FormController implements Initializable {
                         System.out.println("Usuario agregado correctamente");
                         limpiarDatos();
 
-                    }
+                    }*/
 
                 } else {
                     System.out.println("Error, faltan datos");
