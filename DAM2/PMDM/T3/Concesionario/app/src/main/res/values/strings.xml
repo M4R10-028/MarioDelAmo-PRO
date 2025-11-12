@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Concesionario</string>
+    <string-array name="Vehiculos">
+        <item>Coches</item>
+        <item>Motos</item>
+    </string-array>
+</resources>
