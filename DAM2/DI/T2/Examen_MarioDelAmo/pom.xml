@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>FormularioAPP</artifactId>
+    <artifactId>Examen_MarioDelAmo</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>FormularioAPP</name>
+    <name>Examen_MarioDelAmo</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -143,7 +143,8 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>org.example.formularioapp/org.example.formularioapp.HelloApplication</mainClass>
+                            <mainClass>org.example.examen_mariodelamo/org.example.examen_mariodelamo.HelloApplication
+                            </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

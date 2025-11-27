@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.examen_mariodelamo.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 /*
 * Realizar una aplicación que permita visualizar cual es la etiqueta de la DGT que le
@@ -114,12 +115,10 @@ class MainActivity : AppCompatActivity() {
         botonEnviar.setOnClickListener {
             if (textoNombre.text.isEmpty() || textoMatricula.text.isEmpty() || textoAnio.text.isEmpty() ||
                     (spinnerCombustible.selectedItem.toString() == "Híbrido" && textoAutonomia.text.isEmpty())) {
-                val snackbar = com.google.android.material.snackbar.Snackbar.make(
-                    binding.root,
-                    "Faltan datos por rellenar",
-                    com.google.android.material.snackbar.Snackbar.LENGTH_LONG
-                )
-                snackbar.show()
+                Snackbar.make(
+                    binding.root, "Faltan datos por rellenar", Snackbar.LENGTH_LONG
+                ).show()
+
             } else {
                 val intent: Intent = Intent(this, SecondActivity::class.java)
                 intent.putExtra("nombre", textoNombre.text.toString())
