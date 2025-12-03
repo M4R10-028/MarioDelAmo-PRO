@@ -14,8 +14,17 @@ class DataSet {
             Producto(6,"Camiseta",126,60.0,"descripcion", "ropa",0),
          )
 
-        fun getListaFiltrada(categoria: String) : List<Producto>{
-            return lista.filter { it.categoria.equals(categoria,true) }
+        var listaCarrito : ArrayList<Producto> = arrayListOf()
+
+        fun addProducto(x : Producto){
+            listaCarrito.add(x)
+        }
+
+        fun getListaFiltrada(categoria: String) : ArrayList<Producto>{
+            if (categoria.equals("todos",true)){
+                return lista
+            }
+            return lista.filter { it.categoria.equals(categoria,true) } as ArrayList<Producto>
         }
     }
 

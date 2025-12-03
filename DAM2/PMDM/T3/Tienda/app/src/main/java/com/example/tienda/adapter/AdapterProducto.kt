@@ -7,11 +7,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tienda.R
 import com.example.tienda.databinding.ItemProductoBinding
+import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Producto
 import com.example.tienda.ui.DetalleActivity
 import com.google.android.material.snackbar.Snackbar
 
 class AdapterProducto (var lista : ArrayList<Producto>, var contexto : Context) : RecyclerView.Adapter<AdapterProducto.MyHolder>() {
+
+    lateinit var listener : OnProductoCarritoListener
+    init {
+        listener = contexto as OnProductoCarritoListener
+    }
+
     inner class MyHolder(var binding: ItemProductoBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -27,6 +34,15 @@ class AdapterProducto (var lista : ArrayList<Producto>, var contexto : Context) 
         return lista.size
     }
 
+    fun changeList(lista: ArrayList<Producto>){
+        lista.clear()
+        this.lista = lista
+        //notifyDataSetChanged()
+    }
+
+    interface OnProductoCarritoListener{
+        fun actualizarContadorCarrito(): Unit
+    }
 
     // asociar los elementos (posicion) con el holder asociado
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
@@ -43,7 +59,9 @@ class AdapterProducto (var lista : ArrayList<Producto>, var contexto : Context) 
             contexto.startActivity(intent)
         }
         holder.binding.botonCarrito.setOnClickListener {
-            Snackbar.make(holder.binding.root, "El stock del articulo es ${producto.stock}",Snackbar.LENGTH_SHORT).show()
+            DataSet.addProducto(producto)
+            //lanzar la accion de add carrito
+            listener.actualizarContadorCarrito()
         }
 
     }
